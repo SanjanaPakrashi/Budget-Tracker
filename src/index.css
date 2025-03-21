@@ -1,0 +1,140 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --primary: 210 100% 35%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 25% 40%;
+    
+    --accent: 210 40% 94%;
+    --accent-foreground: 222 47% 11%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 84% 68%;
+    
+    --radius: 0.75rem;
+
+    --income: 142 76% 36%;
+    --expense: 358 75% 59%;
+
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+ 
+  .dark {
+    --background: 222 47% 10%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 100% 60%;
+    --primary-foreground: 222 47% 11%;
+ 
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 25% 65%;
+ 
+    --accent: 217 33% 20%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 224 76% 68%;
+
+    --income: 142 76% 46%;
+    --expense: 358 75% 69%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html, body, #root {
+    @apply h-full w-full overflow-x-hidden;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  #root {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/40;
+  }
+}
+
+/* Smooth transitions for dark mode */
+html.dark {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Animation utilities */
+.animate-enter {
+  @apply animate-fade-in;
+}
+
+.animate-exit {
+  @apply animate-fade-out;
+}
+
+.glass-effect {
+  @apply bg-white/90 dark:bg-black/80 backdrop-blur-md;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+.neo-morphism {
+  @apply shadow-[0_10px_20px_rgba(0,0,0,0.05)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.2)];
+}
