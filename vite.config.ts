@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "Budget-Tracker",
+  base: "/Budget-Tracker",
   server: {
     host: "::",
     port: 8080,
