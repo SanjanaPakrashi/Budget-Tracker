@@ -60,7 +60,7 @@ const PieChart = ({ transactions, type, className }: PieChartProps) => {
       return (
         <div className="bg-popover p-3 rounded-lg shadow-md border text-sm">
           <p className="font-medium">{name}</p>
-          <p>${value.toFixed(2)}</p>
+          <p>₹{value.toFixed(2)}</p>
           <p>{percentage}% of total</p>
         </div>
       );
@@ -84,7 +84,7 @@ const PieChart = ({ transactions, type, className }: PieChartProps) => {
         fontSize={12}
         fontWeight={500}
       >
-        {`${(percent * 100).toFixed(0)}%`}
+        {`₹{(percent * 100).toFixed(0)}%`}
       </text>
     ) : null;
   };
@@ -112,7 +112,7 @@ const PieChart = ({ transactions, type, className }: PieChartProps) => {
             >
               {chartData.map((entry, index) => (
                 <Cell 
-                  key={`cell-${index}`} 
+                  key={`cell-₹{index}`} 
                   fill={COLORS[index % COLORS.length]} 
                 />
               ))}
