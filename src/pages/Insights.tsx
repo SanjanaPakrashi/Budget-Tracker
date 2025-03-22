@@ -84,23 +84,23 @@ const Insights = () => {
                   <div className="space-y-3">
                     <div className="flex justify-between items-center p-2 bg-secondary/50 rounded-md">
                       <span className="text-sm font-medium">Total Income</span>
-                      <span className="text-income font-semibold">${summary.totalIncome.toFixed(2)}</span>
+                      <span className="text-income font-semibold">₹{summary.totalIncome.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between items-center p-2 bg-secondary/50 rounded-md">
                       <span className="text-sm font-medium">Total Expenses</span>
-                      <span className="text-expense font-semibold">${summary.totalExpenses.toFixed(2)}</span>
+                      <span className="text-expense font-semibold">₹{summary.totalExpenses.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between items-center p-2 bg-secondary/50 rounded-md">
                       <span className="text-sm font-medium">Net Balance</span>
-                      <span className={`font-semibold ${summary.balance >= 0 ? 'text-income' : 'text-expense'}`}>
-                        ${summary.balance.toFixed(2)}
+                      <span className={`font-semibold ₹{summary.balance >= 0 ? 'text-income' : 'text-expense'}`}>
+                        ₹{summary.balance.toFixed(2)}
                       </span>
                     </div>
                     <div className="flex justify-between items-center p-2 bg-secondary/50 rounded-md">
                       <span className="text-sm font-medium">Savings Rate</span>
                       <span className="font-semibold">
                         {summary.totalIncome > 0 
-                          ? `${((summary.balance / summary.totalIncome) * 100).toFixed(1)}%` 
+                          ? `₹{((summary.balance / summary.totalIncome) * 100).toFixed(1)}%` 
                           : '0%'}
                       </span>
                     </div>
@@ -147,7 +147,7 @@ const Insights = () => {
                             <CategoryTag category={category} />
                           </div>
                           <span className="font-semibold text-expense">
-                            -${amount.toFixed(2)}
+                            -₹{amount.toFixed(2)}
                           </span>
                         </div>
                       ))}
@@ -199,7 +199,7 @@ const Insights = () => {
                             <CategoryTag category={category} />
                           </div>
                           <span className="font-semibold text-income">
-                            +${amount.toFixed(2)}
+                            +₹{amount.toFixed(2)}
                           </span>
                         </div>
                       ))}
