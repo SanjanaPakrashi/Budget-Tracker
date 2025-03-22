@@ -12,6 +12,21 @@ import Login from "./pages/Login";
 import { AuthProvider } from "./contexts/AuthContext";
 import { CurrencyProvider } from "./hooks/useCurrency";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { Switch, Route as WouterRoute, Router as WouterRouter } from "wouter";
+
+
+const basePath = "/";
+
+function Router() {
+  return (
+    <WouterRouter base={basePath}>
+      <Switch>
+        <WouterRoute path="/" component={Index} />
+        <WouterRoute component={NotFound} />
+      </Switch>
+    </WouterRouter>
+  );
+}
 
 const queryClient = new QueryClient();
 

@@ -5,19 +5,22 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/Budget-Tracker",
+  base: mode === "development" ? "/" : "/Budget-Tracker", // ✅ Base set correctly
   server: {
-    host: "::",
+    host: "localhost", // ✅ Ensures localhost works properly
     port: 8080,
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(__dirname, "./src"), // ✅ Alias properly set
     },
+  },
+  build: {
+    outDir: "dist",
+    sourcemap: true, // ✅ Helps debug issues in production
   },
 }));
