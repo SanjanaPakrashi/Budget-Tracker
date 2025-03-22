@@ -64,8 +64,8 @@ const BarChart = ({ transactions, className }: BarChartProps) => {
         <div className="bg-popover p-3 rounded-lg shadow-md border text-sm">
           <p className="font-medium">{fullDate ? format(fullDate, 'MMMM d, yyyy') : label}</p>
           {payload.map((entry: any, index: number) => (
-            <p key={`item-${index}`} style={{ color: entry.color }}>
-              {entry.name}: ${entry.value.toFixed(2)}
+            <p key={`item-₹{index}`} style={{ color: entry.color }}>
+              {entry.name}: ₹{entry.value.toFixed(2)}
             </p>
           ))}
         </div>
@@ -85,7 +85,7 @@ const BarChart = ({ transactions, className }: BarChartProps) => {
           />
           <YAxis 
             tick={{ fontSize: 12 }} 
-            tickFormatter={(value) => `$${value}`} 
+            tickFormatter={(value) => `₹₹{value}`} 
           />
           <Tooltip content={<CustomTooltip />} />
           <Legend />
